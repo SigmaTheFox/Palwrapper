@@ -1,5 +1,5 @@
 {
-	"name": "palwrapper",
+	"name": "@sigmathefox/palwrapper",
 	"version": "1.0.0",
 	"description": "A wrapper for Palworld's REST API",
 	"main": "build/index.js",
@@ -24,5 +24,22 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/SigmaTheFox/PalWrapper"
+	},
+	"funding": [
+		{
+			"type": "PayPal",
+			"url": "https://paypal.me/sigmathefox"
+		},
+		{
+			"type": "Ko-Fi",
+			"url": "https://ko-fi.com/sigmathefox"
+		},
+		{
+			"type": "Github Sponsor",
+			"url": "https://github.com/sponsors/SigmaTheFox"
+		}
+	],
+	"publishConfig": {
+		"access": "public"
 	}
 }
