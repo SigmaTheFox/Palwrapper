@@ -1,0 +1,28 @@
+{
+	"name": "palwrapper",
+	"version": "1.0.0",
+	"description": "A wrapper for Palworld's REST API",
+	"main": "build/index.js",
+	"types": "build/index.d.ts",
+	"scripts": {
+		"build": "npx tsc",
+		"test": "node ./test.js"
+	},
+	"keywords": [
+		"palworld",
+		"wrapper",
+		"API",
+		"REST",
+		"game"
+	],
+	"author": "SigmaTheFox",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "^20.12.4",
+		"typescript": "^5.4.3"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SigmaTheFox/PalWrapper"
+	}
+}
