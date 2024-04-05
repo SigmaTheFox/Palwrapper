@@ -32,6 +32,11 @@ pal.getServerMetrics()
 pal.getSettings()
 	.then(settings => console.log(settings));
 
+/*
+	All methods below will only return the status code of the API call.
+	Useful for error handling.
+*/
+
 // Kick a player from the server
 pal.kickPlayer("steam_00000000000000000", "Reason");
 
@@ -40,11 +45,6 @@ pal.banPlayer("steam_00000000000000000", "Reason");
 
 // Unban a player
 pal.unban("steam_00000000000000000");
-
-/*
-	All methods below will only return the status code of the API call.
-	Useful for error handling.
-*/
 
 // Announce a message to the server
 pal.announceMessage("Hello Pals");
