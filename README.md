@@ -12,7 +12,7 @@ const { PalWrapper } = require('palwrapper');
  * APIPort: The port of the server's API
  */
 const pal = new PalWrapper('AdminPassword', {
-	serverIP: '127.0.0.1',
+	serverIP: '127.0.0.1', // default 127.0.0.1
 	APIPort: 8212, // default 8212
 });
 

@@ -90,4 +90,9 @@ export type PalServerMetricsType = {
 };
 export type SteamUserIdType = `steam_${number}`;
 export type PalResponseStatusType = 200 | 400 | 401 | number;
+export type PalWrapperOptionsType = {
+    serverIP?: string;
+    APIPort?: number;
+    endpointVersion?: string;
+};
 //# sourceMappingURL=types.d.ts.map

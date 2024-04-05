@@ -6,3 +6,4 @@ src/
 /test.js
 /tsconfig.json
 /typedoc.json
+/__test.js

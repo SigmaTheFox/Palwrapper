@@ -5,22 +5,35 @@ import type {
 	PalServerMetricsType,
 	PalResponseStatusType,
 	SteamUserIdType,
+	PalWrapperOptionsType,
 } from './types/types';
 
 export class PalWrapper {
 	URL: string;
 	private authorization: string;
 
+	/**
+	 * @param adminPassword The server's admin password
+	 * @param options
+	 *
+	 *```JS
+	 *	new PalWrapper("AdminPassword", {
+	 *		serverIP: "127.0.0.1", // Default
+	 *		APIPort: 8212, // Default
+	 *		endpointVersion: "v1" // Default
+	 *	})
+	 *```
+	 */
 	constructor(
 		adminPassword: string,
-		{
-			serverIP,
-			APIPort = 8212,
-			endpointVersion = 'v1',
-		}: { serverIP: string; APIPort?: number; endpointVersion: string }
+		options: PalWrapperOptionsType = {
+			serverIP: '127.0.0.1',
+			APIPort: 8212,
+			endpointVersion: 'v1',
+		}
 	) {
-		this.authorization = btoa('admin:' + adminPassword);
-		this.URL = `http://${serverIP}:${APIPort}/${endpointVersion}/api`;
+		this.authorization = btoa(`admin:${adminPassword}`);
+		this.URL = `http://${options.serverIP}:${options.APIPort}/${options.endpointVersion}/api`;
 	}
 
 	/**

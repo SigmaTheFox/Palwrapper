@@ -4,10 +4,33 @@ exports.PalWrapper = void 0;
 class PalWrapper {
     URL;
     authorization;
-    constructor(adminPassword, { serverIP, APIPort = 8212, endpointVersion = 'v1', }) {
-        this.authorization = btoa('admin:' + adminPassword);
-        this.URL = `http://${serverIP}:${APIPort}/${endpointVersion}/api`;
+    /**
+     * @param adminPassword The server's admin password
+     * @param options
+     *
+     *```JS
+     *	new PalWrapper("AdminPassword", {
+     *		serverIP: "127.0.0.1", // Default
+     *		APIPort: 8212, // Default
+     *		endpointVersion: "v1" // Default
+     *	})
+     *```
+     */
+    constructor(adminPassword, options = {
+        serverIP: '127.0.0.1',
+        APIPort: 8212,
+        endpointVersion: 'v1',
+    }) {
+        this.authorization = btoa(`admin:${adminPassword}`);
+        this.URL = `http://${options.serverIP}:${options.APIPort}/${options.endpointVersion}/api`;
     }
+    /**
+     *```JS
+     *	// Get the server name, description and version
+     *	pal.getServerInfo()
+     *		.then(server => console.log(server));
+     *```
+     */
     getServerInfo = async () => {
         let res = await fetch(`${this.URL}/info`, {
             method: 'GET',
@@ -25,6 +48,13 @@ class PalWrapper {
             description: json.description,
         };
     };
+    /**
+     *```JS
+     * // List all currently online players
+     * 	pal.getPlayers()
+     * 		.then(players => console.log(players));
+     *```
+     */
     getPlayers = async () => {
         let res = await fetch(`${this.URL}/players`, {
             method: 'GET',
@@ -38,6 +68,13 @@ class PalWrapper {
         let json = await res.json();
         return json.players;
     };
+    /**
+     *```JS
+     *	// List all server settings
+     *	pal.getSettings()
+     *		.then(settings => console.log(settings));
+     *```
+     */
     getSettings = async () => {
         let res = await fetch(`${this.URL}/settings`, {
             method: 'GET',
@@ -51,6 +88,14 @@ class PalWrapper {
         let json = await res.json();
         return json;
     };
+    /**
+     *
+     *```JS
+     *	// Get server FPS, current and max player count, frametime and uptime
+     *	pal.getServerMetrics()
+     * 		.then(metrics => console.log(metrics));
+     *```
+     */
     getServerMetrics = async () => {
         let res = await fetch(`${this.URL}/metrics`, {
             method: 'GET',
@@ -74,6 +119,11 @@ class PalWrapper {
      *
      * @param message Message to send to the server
      * @returns
+     *
+     *```JS
+     *	// Announce a message to the server
+     * 	pal.announceMessage("Hello Pals");
+     *```
      */
     announceMessage = async (message) => {
         let res = await fetch(`${this.URL}/announce`, {
@@ -94,6 +144,11 @@ class PalWrapper {
      * @param userId The Steam user Id of the user to unban
      * @param message The kick reason
      * @returns
+     *
+     *```JS
+     *	// Kick a player from the server
+     *	pal.kickPlayer("steam_00000000000000000", "Reason");
+     *```
      */
     kickPlayer = async (userId, message) => {
         let res = await fetch(`${this.URL}/kick`, {
@@ -114,6 +169,11 @@ class PalWrapper {
      * @param userId The Steam user Id of the user to unban
      * @param message The ban reason
      * @returns
+     *
+     *```JS
+     *	// Ban a player from the server
+     *	pal.banPlayer("steam_00000000000000000", "Reason");
+     *```
      */
     banPlayer = async (userId, message) => {
         let res = await fetch(`${this.URL}/ban`, {
@@ -133,6 +193,11 @@ class PalWrapper {
      *
      * @param userId The Steam user Id of the user to unban
      * @returns
+     *
+     *```JS
+     *	// Unban a player
+     *	pal.unban("steam_00000000000000000");
+     *```
      */
     unbanPlayer = async (userId) => {
         let res = await fetch(`${this.URL}/unban`, {
@@ -148,6 +213,12 @@ class PalWrapper {
         else
             return 200;
     };
+    /**
+     *```JS
+     *	// Save the world
+     *	pal.save();
+     *```
+     */
     saveWorld = async () => {
         let res = await fetch(`${this.URL}/save`, {
             method: 'POST',
@@ -165,6 +236,11 @@ class PalWrapper {
      * @param waitTime Time in seconds
      * @param message
      * @returns
+     *
+     *```JS
+     *	// shut down the server
+     *	pal.shutDown(10 /*Seconds*\/, "For reasons");
+     *```
      */
     shutDown = async (waitTime, message) => {
         let res = await fetch(`${this.URL}/shutdown`, {
@@ -180,6 +256,13 @@ class PalWrapper {
         else
             return 200;
     };
+    /**
+     *
+     *```JS
+     *	// Force stop the server
+     *	pal.stop();
+     *```
+     */
     stop = async () => {
         let res = await fetch(`${this.URL}/stop`, {
             method: 'POST',
