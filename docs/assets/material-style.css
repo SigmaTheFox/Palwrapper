@@ -97,7 +97,7 @@ img {
 }
 .title {
   display: block;
-  max-width: calc(100% - 5rem);
+  max-width: calc(50% - 5rem);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

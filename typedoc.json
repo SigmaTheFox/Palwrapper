@@ -3,5 +3,14 @@
 	"plugin": ["typedoc-material-theme"],
 	"themeColor": "#130420",
 	"entryPoints": ["src/index.ts", "src/types/types.ts"],
-	"categorizeByGroup": true
+	"categorizeByGroup": true,
+	"cname": "palwrapper.sigmathefox.com",
+	"githubPages": true,
+	"hideGenerator": true,
+	"navigationLinks": {
+		"Github": "https://github.com/SigmaTheFox/PalWrapper",
+		"Issues": "https://github.com/SigmaTheFox/PalWrapper/issues",
+		"npm": "https://www.npmjs.com/package/@sigmathefox/palwrapper"
+	},
+	"sitemapBaseUrl": "https://palwrapper.sigmathefox.com"
 }
