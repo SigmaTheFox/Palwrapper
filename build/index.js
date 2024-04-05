@@ -11,18 +11,16 @@ class PalWrapper {
      *```JS
      *	new PalWrapper("AdminPassword", {
      *		serverIP: "127.0.0.1", // Default
-     *		APIPort: 8212, // Default
-     *		endpointVersion: "v1" // Default
+     *		APIPort: 8212 // Default
      *	})
      *```
      */
     constructor(adminPassword, options = {
         serverIP: '127.0.0.1',
         APIPort: 8212,
-        endpointVersion: 'v1',
     }) {
         this.authorization = btoa(`admin:${adminPassword}`);
-        this.URL = `http://${options.serverIP}:${options.APIPort}/${options.endpointVersion}/api`;
+        this.URL = `http://${options.serverIP}:${options.APIPort}/v1/api`;
     }
     /**
      *```JS
