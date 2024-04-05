@@ -16,6 +16,8 @@ class PalWrapper {
                 Authorization: `Basic ${this.authorization}`,
             },
         });
+        if (res.status !== 200)
+            return res.status;
         let json = await res.json();
         return {
             version: json.version,
@@ -31,6 +33,8 @@ class PalWrapper {
                 Authorization: `Basic ${this.authorization}`,
             },
         });
+        if (res.status !== 200)
+            return res.status;
         let json = await res.json();
         return json.players;
     };
@@ -42,6 +46,8 @@ class PalWrapper {
                 Authorization: `Basic ${this.authorization}`,
             },
         });
+        if (res.status !== 200)
+            return res.status;
         let json = await res.json();
         return json;
     };
@@ -53,6 +59,8 @@ class PalWrapper {
                 Authorization: `Basic ${this.authorization}`,
             },
         });
+        if (res.status !== 200)
+            return res.status;
         let json = await res.json();
         return {
             FPS: json.serverfps,
@@ -62,6 +70,11 @@ class PalWrapper {
             uptime: json.uptime,
         };
     };
+    /**
+     *
+     * @param message Message to send to the server
+     * @returns
+     */
     announceMessage = async (message) => {
         let res = await fetch(`${this.URL}/announce`, {
             method: 'POST',
@@ -76,6 +89,12 @@ class PalWrapper {
         else
             return 200;
     };
+    /**
+     *
+     * @param userId The Steam user Id of the user to unban
+     * @param message The kick reason
+     * @returns
+     */
     kickPlayer = async (userId, message) => {
         let res = await fetch(`${this.URL}/kick`, {
             method: 'POST',
@@ -90,6 +109,12 @@ class PalWrapper {
         else
             return 200;
     };
+    /**
+     *
+     * @param userId The Steam user Id of the user to unban
+     * @param message The ban reason
+     * @returns
+     */
     banPlayer = async (userId, message) => {
         let res = await fetch(`${this.URL}/ban`, {
             method: 'POST',
@@ -104,6 +129,11 @@ class PalWrapper {
         else
             return 200;
     };
+    /**
+     *
+     * @param userId The Steam user Id of the user to unban
+     * @returns
+     */
     unbanPlayer = async (userId) => {
         let res = await fetch(`${this.URL}/unban`, {
             method: 'POST',
@@ -130,6 +160,12 @@ class PalWrapper {
         else
             return 200;
     };
+    /**
+     *
+     * @param waitTime Time in seconds
+     * @param message
+     * @returns
+     */
     shutDown = async (waitTime, message) => {
         let res = await fetch(`${this.URL}/shutdown`, {
             method: 'POST',

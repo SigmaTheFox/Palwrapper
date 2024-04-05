@@ -88,4 +88,6 @@ export type PalServerMetricsType = {
     maxPlayerNum: number;
     uptime: number;
 };
+export type SteamUserIdType = `steam_${number}`;
+export type PalResponseStatusType = 200 | 400 | 401 | number;
 //# sourceMappingURL=types.d.ts.map

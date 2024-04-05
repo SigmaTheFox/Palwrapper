@@ -3,6 +3,8 @@ import type {
 	PalPlayerType,
 	PalSettingsType,
 	PalServerMetricsType,
+	PalResponseStatusType,
+	SteamUserIdType,
 } from './types/types';
 
 export class PalWrapper {
@@ -21,7 +23,7 @@ export class PalWrapper {
 		this.URL = `http://${serverIP}:${APIPort}/${endpointVersion}/api`;
 	}
 
-	getServerInfo = async (): Promise<PalServerType> => {
+	getServerInfo = async (): Promise<PalServerType | PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/info`, {
 			method: 'GET',
 			headers: {
@@ -29,6 +31,9 @@ export class PalWrapper {
 				Authorization: `Basic ${this.authorization}`,
 			},
 		});
+
+		if (res.status !== 200) return res.status;
+
 		let json = await res.json();
 
 		return {
@@ -38,7 +43,7 @@ export class PalWrapper {
 		};
 	};
 
-	getPlayers = async (): Promise<PalPlayerType> => {
+	getPlayers = async (): Promise<PalPlayerType | PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/players`, {
 			method: 'GET',
 			headers: {
@@ -46,12 +51,15 @@ export class PalWrapper {
 				Authorization: `Basic ${this.authorization}`,
 			},
 		});
+
+		if (res.status !== 200) return res.status;
+
 		let json = await res.json();
 
 		return json.players;
 	};
 
-	getSettings = async (): Promise<PalSettingsType> => {
+	getSettings = async (): Promise<PalSettingsType | PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/settings`, {
 			method: 'GET',
 			headers: {
@@ -59,12 +67,15 @@ export class PalWrapper {
 				Authorization: `Basic ${this.authorization}`,
 			},
 		});
+
+		if (res.status !== 200) return res.status;
+
 		let json = await res.json();
 
 		return json;
 	};
 
-	getServerMetrics = async (): Promise<PalServerMetricsType> => {
+	getServerMetrics = async (): Promise<PalServerMetricsType | PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/metrics`, {
 			method: 'GET',
 			headers: {
@@ -72,6 +83,9 @@ export class PalWrapper {
 				Authorization: `Basic ${this.authorization}`,
 			},
 		});
+
+		if (res.status !== 200) return res.status;
+
 		let json = await res.json();
 
 		return {
@@ -83,7 +97,12 @@ export class PalWrapper {
 		};
 	};
 
-	announceMessage = async (message: string): Promise<number> => {
+	/**
+	 *
+	 * @param message Message to send to the server
+	 * @returns
+	 */
+	announceMessage = async (message: string): Promise<PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/announce`, {
 			method: 'POST',
 			headers: {
@@ -97,7 +116,16 @@ export class PalWrapper {
 		else return 200;
 	};
 
-	kickPlayer = async (userId: string, message?: string): Promise<number> => {
+	/**
+	 *
+	 * @param userId The Steam user Id of the user to unban
+	 * @param message The kick reason
+	 * @returns
+	 */
+	kickPlayer = async (
+		userId: SteamUserIdType,
+		message?: string
+	): Promise<PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/kick`, {
 			method: 'POST',
 			headers: {
@@ -111,7 +139,16 @@ export class PalWrapper {
 		else return 200;
 	};
 
-	banPlayer = async (userId: string, message?: string): Promise<number> => {
+	/**
+	 *
+	 * @param userId The Steam user Id of the user to unban
+	 * @param message The ban reason
+	 * @returns
+	 */
+	banPlayer = async (
+		userId: SteamUserIdType,
+		message?: string
+	): Promise<PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/ban`, {
 			method: 'POST',
 			headers: {
@@ -125,7 +162,12 @@ export class PalWrapper {
 		else return 200;
 	};
 
-	unbanPlayer = async (userId: string): Promise<number> => {
+	/**
+	 *
+	 * @param userId The Steam user Id of the user to unban
+	 * @returns
+	 */
+	unbanPlayer = async (userId: SteamUserIdType): Promise<PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/unban`, {
 			method: 'POST',
 			headers: {
@@ -139,7 +181,7 @@ export class PalWrapper {
 		else return 200;
 	};
 
-	saveWorld = async (): Promise<number> => {
+	saveWorld = async (): Promise<PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/save`, {
 			method: 'POST',
 			headers: {
@@ -151,7 +193,13 @@ export class PalWrapper {
 		else return 200;
 	};
 
-	shutDown = async (waitTime: number, message: string): Promise<number> => {
+	/**
+	 *
+	 * @param waitTime Time in seconds
+	 * @param message
+	 * @returns
+	 */
+	shutDown = async (waitTime: number, message?: string): Promise<PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/shutdown`, {
 			method: 'POST',
 			headers: {
@@ -165,7 +213,7 @@ export class PalWrapper {
 		else return 200;
 	};
 
-	stop = async (): Promise<number> => {
+	stop = async (): Promise<PalResponseStatusType> => {
 		let res = await fetch(`${this.URL}/stop`, {
 			method: 'POST',
 			headers: {
