@@ -1,0 +1,8 @@
+node_modules/
+.github/
+docs/
+src/
+
+/test.js
+/tsconfig.json
+/typedoc.json
