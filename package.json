@@ -1,6 +1,6 @@
 {
 	"name": "@sigmathefox/palwrapper",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "A wrapper for Palworld's REST API",
 	"main": "build/index.js",
 	"types": "build/index.d.ts",

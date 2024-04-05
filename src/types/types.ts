@@ -100,5 +100,4 @@ export type PalResponseStatusType = 200 | 400 | 401 | number;
 export type PalWrapperOptionsType = {
 	serverIP?: string;
 	APIPort?: number;
-	endpointVersion?: string;
 };

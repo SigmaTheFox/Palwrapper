@@ -9,8 +9,7 @@ export declare class PalWrapper {
      *```JS
      *	new PalWrapper("AdminPassword", {
      *		serverIP: "127.0.0.1", // Default
-     *		APIPort: 8212, // Default
-     *		endpointVersion: "v1" // Default
+     *		APIPort: 8212 // Default
      *	})
      *```
      */
