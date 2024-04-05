@@ -1,6 +1,11 @@
-# Palwrapper
-
-A simple Palworld API wrapper for Node.js projects
+<div align="center">
+	<h1>Palwrapper</h1>
+	<p>
+		<a href="https://www.npmjs.com/package/@sigmathefox/palwrapper"><img src="https://img.shields.io/npm/v/@sigmathefox/palwrapper.svg?maxAge=3600" alt="npm version" /></a>
+		<a href="https://www.npmjs.com/package/@sigmathefox/palwrapper"><img src="https://img.shields.io/npm/dt/@sigmathefox/palwrapper.svg?maxAge=3600" alt="npm downloads" /></a>
+	</p>
+	<div style="font-size: 1.3rem;">A simple Palworld API wrapper for Node.js projects</div>
+</div>
 
 ## Usage
 
