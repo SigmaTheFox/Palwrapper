@@ -1,6 +1,6 @@
 {
 	"$schema": "https://typedoc.org/schema.json",
-	"plugin": ["typedoc-material-theme"],
+	"plugin": ["./custom-typedoc-theme/lib/index.js"],
 	"themeColor": "#130420",
 	"entryPoints": ["src/index.ts", "src/types/types.ts"],
 	"categorizeByGroup": true,

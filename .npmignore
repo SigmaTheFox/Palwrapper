@@ -2,7 +2,9 @@ node_modules/
 .github/
 docs/
 src/
+custom-typedoc-theme/
 
+/.gitmodules
 /test.js
 /tsconfig.json
 /typedoc.json

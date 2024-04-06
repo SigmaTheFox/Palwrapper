@@ -1,3 +1,6 @@
+/**
+ * @module Types
+ */
 export type PalServerType = {
     version: string;
     name: string;

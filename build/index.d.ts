@@ -1,3 +1,6 @@
+/**
+ * @module Main
+ */
 import type { PalServerType, PalPlayerType, PalSettingsType, PalServerMetricsType, PalResponseStatusType, SteamUserIdType, PalWrapperOptionsType } from './types/types';
 export declare class PalWrapper {
     URL: string;

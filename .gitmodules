@@ -1,0 +1,3 @@
+[submodule "custom-typedoc-theme"]
+	path = custom-typedoc-theme
+	url = .\\custom-typedoc-theme\\

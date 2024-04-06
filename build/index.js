@@ -1,4 +1,7 @@
 "use strict";
+/**
+ * @module Main
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.PalWrapper = void 0;
 class PalWrapper {

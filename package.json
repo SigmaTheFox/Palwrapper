@@ -20,7 +20,6 @@
 	"devDependencies": {
 		"@types/node": "^20.12.4",
 		"typedoc": "^0.25.12",
-		"typedoc-material-theme": "^1.0.2",
 		"typescript": "^5.4.3"
 	},
 	"repository": {
@@ -30,15 +29,15 @@
 	"homepage": "https://palwrapper.sigmathefox.com",
 	"funding": [
 		{
-			"type": "PayPal",
+			"type": "individual",
 			"url": "https://paypal.me/sigmathefox"
 		},
 		{
-			"type": "Ko-Fi",
+			"type": "individual",
 			"url": "https://ko-fi.com/sigmathefox"
 		},
 		{
-			"type": "Github Sponsor",
+			"type": "individual",
 			"url": "https://github.com/sponsors/SigmaTheFox"
 		}
 	],
