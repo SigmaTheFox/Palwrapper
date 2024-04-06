@@ -8,9 +8,7 @@
 	"githubPages": true,
 	"hideGenerator": true,
 	"navigationLinks": {
-		"Github": "https://github.com/SigmaTheFox/PalWrapper",
-		"Issues": "https://github.com/SigmaTheFox/PalWrapper/issues",
-		"npm": "https://www.npmjs.com/package/@sigmathefox/palwrapper"
+		"Github": "https://github.com/SigmaTheFox/PalWrapper"
 	},
 	"sitemapBaseUrl": "https://palwrapper.sigmathefox.com"
 }
