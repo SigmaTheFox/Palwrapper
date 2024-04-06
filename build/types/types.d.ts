@@ -83,7 +83,7 @@ export type PalPlayerType = {
     location_x: number;
     location_y: number;
     level: number;
-};
+}[];
 export type PalServerMetricsType = {
     FPS: number;
     currentPlayerNum: number;
