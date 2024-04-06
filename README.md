@@ -7,6 +7,12 @@
 	<div style="font-size: 1.3rem;">A simple Palworld API wrapper for Node.js projects</div>
 </div>
 
+## Installation
+
+```
+npm i @sigmathefox/palwrapper
+```
+
 ## Usage
 
 ```JS
@@ -63,3 +69,9 @@ pal.shutDown(10 /*Seconds*/, "For reasons");
 // Force stop the server
 pal.stop();
 ```
+
+## Links
+
+-   [Documentation](https://palwrapper.sigmathefox.com)
+-   [Github](https://github.com/SigmaTheFox/Palwrapper)
+-   [npm](https://www.npmjs.com/package/@sigmathefox/palwrapper)
