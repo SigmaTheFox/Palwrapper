@@ -104,6 +104,20 @@ img {
 	font-size: 22px;
 }
 
+pre > button {
+	background-color: var(--color-active-menu-item);
+	border: none;
+	border-radius: 24px;
+	padding: 0.8em 0.88em;
+	top: 2px;
+	color: var(--color-text);
+	cursor: pointer;
+}
+
+pre > button:hover {
+	background-color: var(--color-background-secondary);
+}
+
 .tsd-page-toolbar {
 	padding: 8px 0;
 	height: calc(var(--top-app-bar-height) - 16px);
